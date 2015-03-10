@@ -33,12 +33,12 @@
 #warning Necessario para que a table view tenha um espaco em relacao ao topo, pois caso contrario o texto ficara atras da barra superior
     self.tableview.tableHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, self.tableview.bounds.size.width, 80.f)];
     
-    _texto = [[UITextField alloc]initWithFrame:CGRectMake(1.0f, 40.0f, 250.f, 30.f)];
+    _texto = [[UITextField alloc]initWithFrame:CGRectMake(1.0f, 40.0f, 220.f, 30.f)];
     [_texto setBorderStyle:UITextBorderStyleRoundedRect];
     
-    UIButton *botao = [[UIButton alloc]initWithFrame:CGRectMake(250.f, 40.0f, 70.f, 30.f)];
+    UIButton *botao = [[UIButton alloc]initWithFrame:CGRectMake(220.f, 40.0f, 100.f, 30.f)];
     [botao setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
-    [botao setTitle:@"Buscar" forState:UIControlStateNormal];
+    [botao setTitle:NSLocalizedString(@"botao", @"") forState:UIControlStateNormal];
     [botao addTarget:self action:@selector(pesquisa) forControlEvents:UIControlEventTouchUpInside];
     
     [self.tableview.tableHeaderView addSubview:_texto];
@@ -72,7 +72,7 @@
     Filme *filme = [midias objectAtIndex:indexPath.row];
     
     [celula.nome setText:filme.nome];
-    [celula.tipo setText:@"Filme"];
+    [celula.tipo setText:NSLocalizedString(@"Filmes", @"")];
     [celula.genero setText:filme.genero];
     [celula.artista setText:filme.artista];
     
