@@ -7,11 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "iTunesManager.h"
 
 @interface TableViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
 
 @property (strong, nonatomic) IBOutlet UITableView *tableview;
+@property iTunesManager *itunes;
+@property UITextField *texto;
 
 @end
 

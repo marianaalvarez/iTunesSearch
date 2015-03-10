@@ -27,11 +27,28 @@
     UINib *nib = [UINib nibWithNibName:@"TableViewCell" bundle:nil];
     [self.tableview registerNib:nib forCellReuseIdentifier:@"celulaPadrao"];
     
-    iTunesManager *itunes = [iTunesManager sharedInstance];
-    midias = [itunes buscarMidias:@"Apple"];
+    _itunes = [iTunesManager sharedInstance];
+    midias = [_itunes buscarMidias:@"Apple"];
     
 #warning Necessario para que a table view tenha um espaco em relacao ao topo, pois caso contrario o texto ficara atras da barra superior
-    self.tableview.tableHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, self.tableview.bounds.size.width, 15.f)];
+    self.tableview.tableHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, self.tableview.bounds.size.width, 80.f)];
+    
+    _texto = [[UITextField alloc]initWithFrame:CGRectMake(1.0f, 40.0f, 250.f, 30.f)];
+    [_texto setBorderStyle:UITextBorderStyleRoundedRect];
+    
+    UIButton *botao = [[UIButton alloc]initWithFrame:CGRectMake(250.f, 40.0f, 70.f, 30.f)];
+    [botao setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+    [botao setTitle:@"Buscar" forState:UIControlStateNormal];
+    [botao addTarget:self action:@selector(pesquisa) forControlEvents:UIControlEventTouchUpInside];
+    
+    [self.tableview.tableHeaderView addSubview:_texto];
+    [self.tableview.tableHeaderView addSubview:botao];
+    
+}
+     
+-(void)pesquisa{
+    midias = [_itunes buscarMidias:_texto.text];
+    [_tableview reloadData];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -65,6 +82,18 @@
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 70;
 }
+
+//-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+//    static NSString *CellIdentifier = @"SectionHeader";
+//    UITableViewCell *headerView = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+//    if (headerView == nil){
+//        [NSException raise:@"headerView == nil.." format:@"No cells with matching CellIdentifier loaded from your storyboard"];
+//    }
+//    
+//    UITextField *texto = [[UITextField alloc]initWithFrame:CGRectMake(0.0f, 0.0f, 100.f, 30.f)];
+//    [headerView addSubview:texto];
+//    return headerView;
+//}
 
 
 @end
