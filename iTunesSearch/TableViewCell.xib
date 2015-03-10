@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="14D72i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
@@ -15,13 +15,25 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nome da Mídia" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UIA-JU-luV">
-                        <rect key="frame" x="8" y="8" width="284" height="21"/>
+                        <rect key="frame" x="8" y="8" width="284" height="20.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Tipo da Mídia" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Z5-yj-wnl">
-                        <rect key="frame" x="8" y="34" width="284" height="21"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tipo da Mídia" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Z5-yj-wnl">
+                        <rect key="frame" x="8" y="34" width="284" height="14"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
+                        <color key="textColor" red="0.89928382640000004" green="0.12798005339999999" blue="0.001599563868" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Genero" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nyF-rw-qDy">
+                        <rect key="frame" x="89" y="34" width="39.5" height="14"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
+                        <color key="textColor" red="0.89928382640000004" green="0.12798005339999999" blue="0.001599563868" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Artista" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HHR-Ca-MOP">
+                        <rect key="frame" x="141" y="34" width="34.5" height="14"/>
                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
                         <color key="textColor" red="0.89928382640000004" green="0.12798005339999999" blue="0.001599563868" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
@@ -29,14 +41,48 @@
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="trailingMargin" secondItem="6Z5-yj-wnl" secondAttribute="trailing" id="20H-3b-RZ8"/>
+                    <constraint firstAttribute="centerX" secondItem="nyF-rw-qDy" secondAttribute="centerX" constant="-9.75" id="2Wk-jh-CXX"/>
+                    <constraint firstItem="HHR-Ca-MOP" firstAttribute="leading" secondItem="nyF-rw-qDy" secondAttribute="trailing" constant="19.5" id="6Gg-Dy-EJt"/>
+                    <constraint firstItem="nyF-rw-qDy" firstAttribute="centerY" secondItem="6Z5-yj-wnl" secondAttribute="centerY" id="8dd-sG-plD"/>
                     <constraint firstItem="6Z5-yj-wnl" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="96O-aR-ps1"/>
+                    <constraint firstItem="nyF-rw-qDy" firstAttribute="centerY" secondItem="HHR-Ca-MOP" secondAttribute="centerY" id="Aw8-jC-Vyc"/>
+                    <constraint firstItem="nyF-rw-qDy" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="81" id="CK7-6M-0xE"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="HHR-Ca-MOP" secondAttribute="bottom" constant="2" id="J7d-hr-r1y"/>
+                    <constraint firstItem="HHR-Ca-MOP" firstAttribute="leading" secondItem="nyF-rw-qDy" secondAttribute="trailing" constant="12.5" id="OaU-RL-f4L"/>
                     <constraint firstItem="UIA-JU-luV" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="Q1V-YW-Wh5"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="HHR-Ca-MOP" secondAttribute="trailing" constant="15" id="Qvv-ke-T2w"/>
+                    <constraint firstItem="nyF-rw-qDy" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="92" id="Rsj-Y7-gAq"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="HHR-Ca-MOP" secondAttribute="trailing" id="XkV-Eh-qmj"/>
                     <constraint firstItem="UIA-JU-luV" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="YdC-rX-aV6"/>
                     <constraint firstAttribute="trailingMargin" secondItem="UIA-JU-luV" secondAttribute="trailing" id="cTH-Nq-14q"/>
+                    <constraint firstItem="nyF-rw-qDy" firstAttribute="centerY" secondItem="6Z5-yj-wnl" secondAttribute="centerY" id="dg5-lI-c6j"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="nyF-rw-qDy" secondAttribute="bottom" constant="2" id="mFS-uH-r6R"/>
+                    <constraint firstAttribute="centerX" secondItem="nyF-rw-qDy" secondAttribute="centerX" constant="-9.5" id="n7o-O4-ULl"/>
+                    <constraint firstItem="nyF-rw-qDy" firstAttribute="centerY" secondItem="HHR-Ca-MOP" secondAttribute="centerY" id="pib-d6-VKG"/>
                     <constraint firstItem="6Z5-yj-wnl" firstAttribute="top" secondItem="UIA-JU-luV" secondAttribute="bottom" constant="5" id="tJH-0d-wda"/>
+                    <constraint firstItem="nyF-rw-qDy" firstAttribute="centerY" secondItem="HHR-Ca-MOP" secondAttribute="centerY" id="yT7-UD-DzY"/>
+                    <constraint firstItem="HHR-Ca-MOP" firstAttribute="top" secondItem="UIA-JU-luV" secondAttribute="bottom" constant="5.5" id="yXY-sY-ppD"/>
                 </constraints>
+                <variation key="default">
+                    <mask key="constraints">
+                        <exclude reference="2Wk-jh-CXX"/>
+                        <exclude reference="8dd-sG-plD"/>
+                        <exclude reference="Aw8-jC-Vyc"/>
+                        <exclude reference="Rsj-Y7-gAq"/>
+                        <exclude reference="mFS-uH-r6R"/>
+                        <exclude reference="n7o-O4-ULl"/>
+                        <exclude reference="yT7-UD-DzY"/>
+                        <exclude reference="6Gg-Dy-EJt"/>
+                        <exclude reference="J7d-hr-r1y"/>
+                        <exclude reference="Qvv-ke-T2w"/>
+                        <exclude reference="XkV-Eh-qmj"/>
+                        <exclude reference="yXY-sY-ppD"/>
+                    </mask>
+                </variation>
             </tableViewCellContentView>
             <connections>
+                <outlet property="artista" destination="HHR-Ca-MOP" id="Wr5-9H-8Ch"/>
+                <outlet property="genero" destination="nyF-rw-qDy" id="DiD-aG-0br"/>
                 <outlet property="nome" destination="UIA-JU-luV" id="ubX-WX-gam"/>
                 <outlet property="tipo" destination="6Z5-yj-wnl" id="vYj-HE-tLd"/>
             </connections>
