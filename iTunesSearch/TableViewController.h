@@ -13,7 +13,6 @@
 
 
 @property (strong, nonatomic) IBOutlet UITableView *tableview;
-@property iTunesManager *itunes;
 @property UITextField *texto;
 
 @end

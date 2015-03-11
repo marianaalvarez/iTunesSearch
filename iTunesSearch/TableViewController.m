@@ -27,8 +27,9 @@
     UINib *nib = [UINib nibWithNibName:@"TableViewCell" bundle:nil];
     [self.tableview registerNib:nib forCellReuseIdentifier:@"celulaPadrao"];
     
-    _itunes = [iTunesManager sharedInstance];
-    midias = [_itunes buscarMidias:@"Apple"];
+    iTunesManager *itunes;
+    itunes = [iTunesManager sharedInstance];
+    midias = [itunes buscarMidias:@"Apple"];
     
 #warning Necessario para que a table view tenha um espaco em relacao ao topo, pois caso contrario o texto ficara atras da barra superior
     self.tableview.tableHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, self.tableview.bounds.size.width, 80.f)];
@@ -47,7 +48,8 @@
 }
      
 -(void)pesquisa{
-    midias = [_itunes buscarMidias:_texto.text];
+    iTunesManager *itunes;
+    midias = [itunes buscarMidias:_texto.text];
     [_tableview reloadData];
 }
 
@@ -72,7 +74,7 @@
     Filme *filme = [midias objectAtIndex:indexPath.row];
     
     [celula.nome setText:filme.nome];
-    [celula.tipo setText:NSLocalizedString(@"Filmes", @"")];
+    [celula.tipo setText:filme.tipo];
     [celula.genero setText:filme.genero];
     [celula.artista setText:filme.artista];
     
