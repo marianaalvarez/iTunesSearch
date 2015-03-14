@@ -30,65 +30,20 @@ static bool isFirstAccess = YES;
 
 
 - (NSDictionary *)buscarMidias:(NSString *)termo {
+    
     if (!termo) {
         termo = @"";
     }
     
-    termo = [termo stringByReplacingOccurrencesOfString:@" " withString: @"%20"];
+     termo = [termo stringByReplacingOccurrencesOfString:@" " withString: @"%20"];
     
-    NSString *url = [NSString stringWithFormat:@"https://itunes.apple.com/search?term=%@&media=all", termo];
-    NSData *jsonData = [NSData dataWithContentsOfURL: [NSURL URLWithString:url]];
-    
-    NSError *error;
-    NSDictionary *resultado = [NSJSONSerialization JSONObjectWithData:jsonData
-                                                              options:NSJSONReadingMutableContainers
-                                                                error:&error];
-    if (error) {
-        NSLog(@"Não foi possível fazer a busca. ERRO: %@", error);
-        return nil;
-    }
-    
-    NSArray *resultados = [resultado objectForKey:@"results"];
-    
-    NSMutableArray *medias = [[NSMutableArray alloc] init];
     _arrayPodcasts = [[NSMutableArray alloc] init];
     _arrayMovies = [[NSMutableArray alloc] init];
     _arrayMusic = [[NSMutableArray alloc] init];
     
-    
-    for (NSDictionary *item in resultados) {
-        if ([[item objectForKey:@"kind"] isEqualToString: @"podcast"]) {
-            Media *media = [[Media alloc] init];
-            [media setNome:[item objectForKey:@"trackName"]];
-            [media setArtista:[item objectForKey:@"artistName"]];
-            [media setGenero:[item objectForKey:@"primaryGenreName"]];
-            [media setMidia:[item objectForKey:@"kind"]];
-            [medias addObject:media];
-            [_arrayPodcasts addObject:media];
-            
-        }
-        if ([[item objectForKey:@"kind"] isEqualToString: @"song"]) {
-            Media *media = [[Media alloc] init];
-            [media setNome:[item objectForKey:@"trackName"]];
-            [media setArtista:[item objectForKey:@"artistName"]];
-            [media setGenero:[item objectForKey:@"primaryGenreName"]];
-            [media setMidia:[item objectForKey:@"kind"]];
-            [medias addObject:media];
-            [_arrayMusic addObject:media];
-            
-        }
-        if ([[item objectForKey:@"kind"] isEqualToString: @"featured-movie"]) {
-            Media *media = [[Media alloc] init];
-            [media setNome:[item objectForKey:@"trackName"]];
-            [media setArtista:[item objectForKey:@"artistName"]];
-            [media setGenero:[item objectForKey:@"primaryGenreName"]];
-            [media setMidia:[item objectForKey:@"kind"]];
-            [medias addObject:media];
-            [_arrayMovies addObject:media];
-            
-        }
-        
-    }
+    [self buscaMusicas:termo];
+    [self buscaPodcasts:termo];
+    [self buscaFilmes:termo];
     
     _categorias = [NSMutableDictionary dictionaryWithDictionary:@{@"podcast": _arrayPodcasts,
                                                                   @"movie": _arrayMovies,
@@ -100,6 +55,80 @@ static bool isFirstAccess = YES;
     return _categorias;
 }
 
+-(void)buscaPodcasts:(NSString*)termo {
+    NSString *url = [NSString stringWithFormat:@"https://itunes.apple.com/search?term=%@&media=podcast", termo];
+    NSData *jsonData = [NSData dataWithContentsOfURL: [NSURL URLWithString:url]];
+    
+    NSError *error;
+    NSDictionary *resultado = [NSJSONSerialization JSONObjectWithData:jsonData
+                                                              options:NSJSONReadingMutableContainers
+                                                                error:&error];
+    if (error) {
+        NSLog(@"Não foi possível fazer a busca. ERRO: %@", error);
+    }
+    
+    NSArray *resultados = [resultado objectForKey:@"results"];
+    
+    for (NSDictionary *item in resultados) {
+        Media *podcast = [[Media alloc] init];
+        [podcast setNome:[item objectForKey:@"trackName"]];
+        [podcast setArtista:[item objectForKey:@"artistName"]];
+        [podcast setGenero:[item objectForKey:@"primaryGenreName"]];
+        [podcast setMidia:[item objectForKey:@"kind"]];
+        [_arrayPodcasts addObject:podcast];
+        
+    }
+}
+
+-(void)buscaMusicas:(NSString*)termo {
+    NSString *url = [NSString stringWithFormat:@"https://itunes.apple.com/search?term=%@&media=music", termo];
+    NSData *jsonData = [NSData dataWithContentsOfURL: [NSURL URLWithString:url]];
+    
+    NSError *error;
+    NSDictionary *resultado = [NSJSONSerialization JSONObjectWithData:jsonData
+                                                              options:NSJSONReadingMutableContainers
+                                                                error:&error];
+    if (error) {
+        NSLog(@"Não foi possível fazer a busca. ERRO: %@", error);
+    }
+    
+    NSArray *resultados = [resultado objectForKey:@"results"];
+    
+    for (NSDictionary *item in resultados) {
+        Media *music = [[Media alloc] init];
+        [music setNome:[item objectForKey:@"trackName"]];
+        [music setArtista:[item objectForKey:@"artistName"]];
+        [music setGenero:[item objectForKey:@"primaryGenreName"]];
+        [music setMidia:[item objectForKey:@"kind"]];
+        [_arrayMusic addObject:music];
+    }
+
+}
+
+-(void)buscaFilmes:(NSString*)termo {
+    NSString *url = [NSString stringWithFormat:@"https://itunes.apple.com/search?term=%@&media=movie", termo];
+    NSData *jsonData = [NSData dataWithContentsOfURL: [NSURL URLWithString:url]];
+    
+    NSError *error;
+    NSDictionary *resultado = [NSJSONSerialization JSONObjectWithData:jsonData
+                                                              options:NSJSONReadingMutableContainers
+                                                                error:&error];
+    if (error) {
+        NSLog(@"Não foi possível fazer a busca. ERRO: %@", error);
+    }
+    
+    NSArray *resultados = [resultado objectForKey:@"results"];
+    
+    for (NSDictionary *item in resultados) {
+        Media *movie = [[Media alloc] init];
+        [movie setNome:[item objectForKey:@"trackName"]];
+        [movie setArtista:[item objectForKey:@"artistName"]];
+        [movie setGenero:[item objectForKey:@"primaryGenreName"]];
+        [movie setMidia:[item objectForKey:@"kind"]];
+        [_arrayMovies addObject:movie];
+
+    }
+}
 
 
 

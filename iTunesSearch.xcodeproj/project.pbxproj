@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		05714DFD1AB4B7B600C0112C /* Podcast.m in Sources */ = {isa = PBXBuildFile; fileRef = 05714DFC1AB4B7B600C0112C /* Podcast.m */; };
+		05714E001AB4B7C600C0112C /* Music.m in Sources */ = {isa = PBXBuildFile; fileRef = 05714DFF1AB4B7C600C0112C /* Music.m */; };
+		05714E031AB4B7D400C0112C /* Movie.m in Sources */ = {isa = PBXBuildFile; fileRef = 05714E021AB4B7D400C0112C /* Movie.m */; };
 		05D3C9F21AAF71920022A3E6 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 05D3C9F41AAF71920022A3E6 /* Localizable.strings */; };
 		92C21CB61AAE757A0052ABE6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 92C21CB51AAE757A0052ABE6 /* main.m */; };
 		92C21CB91AAE757A0052ABE6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 92C21CB81AAE757A0052ABE6 /* AppDelegate.m */; };
@@ -31,6 +34,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		05714DFB1AB4B7B600C0112C /* Podcast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Podcast.h; sourceTree = "<group>"; };
+		05714DFC1AB4B7B600C0112C /* Podcast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Podcast.m; sourceTree = "<group>"; };
+		05714DFE1AB4B7C600C0112C /* Music.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Music.h; sourceTree = "<group>"; };
+		05714DFF1AB4B7C600C0112C /* Music.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Music.m; sourceTree = "<group>"; };
+		05714E011AB4B7D400C0112C /* Movie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Movie.h; sourceTree = "<group>"; };
+		05714E021AB4B7D400C0112C /* Movie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Movie.m; sourceTree = "<group>"; };
 		05D3C9F31AAF71920022A3E6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		05D3C9F51AAF71950022A3E6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		05D3C9F61AAF74260022A3E6 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -151,6 +160,12 @@
 			children = (
 				92C21CE61AAE858E0052ABE6 /* Media.h */,
 				92C21CE71AAE858E0052ABE6 /* Media.m */,
+				05714DFB1AB4B7B600C0112C /* Podcast.h */,
+				05714DFC1AB4B7B600C0112C /* Podcast.m */,
+				05714DFE1AB4B7C600C0112C /* Music.h */,
+				05714DFF1AB4B7C600C0112C /* Music.m */,
+				05714E011AB4B7D400C0112C /* Movie.h */,
+				05714E021AB4B7D400C0112C /* Movie.m */,
 			);
 			name = Entidades;
 			sourceTree = "<group>";
@@ -259,8 +274,11 @@
 			files = (
 				92C21CBC1AAE757A0052ABE6 /* TableViewController.m in Sources */,
 				92C21CDB1AAE75B30052ABE6 /* iTunesManager.m in Sources */,
+				05714DFD1AB4B7B600C0112C /* Podcast.m in Sources */,
+				05714E001AB4B7C600C0112C /* Music.m in Sources */,
 				92C21CB91AAE757A0052ABE6 /* AppDelegate.m in Sources */,
 				92C21CE81AAE858E0052ABE6 /* Media.m in Sources */,
+				05714E031AB4B7D400C0112C /* Movie.m in Sources */,
 				92C21CE11AAE76930052ABE6 /* TableViewCell.m in Sources */,
 				92C21CB61AAE757A0052ABE6 /* main.m in Sources */,
 			);
