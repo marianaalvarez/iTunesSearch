@@ -9,16 +9,19 @@
 #import "TableViewController.h"
 #import "TableViewCell.h"
 #import "iTunesManager.h"
-#import "Entidades/Filme.h"
+#import "Entidades/Media.h"
 
 @interface TableViewController () {
-    NSArray *midias;
+    NSDictionary *midias;
+    NSArray *arrayPodcasts;
+    NSArray *arrayMusic;
+    NSArray *arrayMovies;
 }
 
 @end
 
 @implementation TableViewController
-
+@synthesize itunes;
 
 
 - (void)viewDidLoad {
@@ -27,7 +30,6 @@
     UINib *nib = [UINib nibWithNibName:@"TableViewCell" bundle:nil];
     [self.tableview registerNib:nib forCellReuseIdentifier:@"celulaPadrao"];
     
-    iTunesManager *itunes;
     itunes = [iTunesManager sharedInstance];
     midias = [itunes buscarMidias:@"Apple"];
     
@@ -48,7 +50,7 @@
 }
      
 -(void)pesquisa{
-    iTunesManager *itunes;
+    //iTunesManager *itunes = [iTunesManager sharedInstance];
     midias = [itunes buscarMidias:_texto.text];
     [_tableview reloadData];
 }
@@ -61,24 +63,92 @@
 
 #pragma mark - Metodos do UITableViewDataSource
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
+    return 3;
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [midias count];
+    NSMutableArray *array;
+    switch (section) {
+        case 0: {
+            array = [itunes.categorias objectForKey:@"podcast"];
+            break;
+        }
+        case 1: {
+            array = [itunes.categorias objectForKey:@"music"];
+            break;
+        }
+        case 2: {
+            array = [itunes.categorias objectForKey:@"movie"];
+            break;
+        }
+        default:
+            break;
+    }
+    return [array count];
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     TableViewCell *celula = [self.tableview dequeueReusableCellWithIdentifier:@"celulaPadrao"];
     
-    Filme *filme = [midias objectAtIndex:indexPath.row];
+    arrayPodcasts = [[NSArray alloc]init];
+    arrayMusic = [[NSArray alloc]init];
+    arrayMovies = [[NSArray alloc]init];
     
-    [celula.nome setText:filme.nome];
-    [celula.tipo setText:filme.tipo];
-    [celula.genero setText:filme.genero];
-    [celula.artista setText:filme.artista];
+    arrayPodcasts = [midias objectForKey:@"podcast"];
+    arrayMusic = [midias objectForKey:@"music"];
+    arrayMovies = [midias objectForKey:@"movie"];
+    
+    switch (indexPath.section) {
+            
+        case 0: {
+            
+            Media *media = [arrayPodcasts objectAtIndex:indexPath.row];
+            
+            [celula.nome setText:media.nome];
+            [celula.tipo setText:media.midia];
+            [celula.genero setText:media.genero];
+            [celula.artista setText:media.artista];
+            break;
+        }
+        case 1: {
+            
+            Media *media = [arrayMusic objectAtIndex:indexPath.row];
+            
+            [celula.nome setText:media.nome];
+            [celula.tipo setText:media.midia];
+            [celula.genero setText:media.genero];
+            [celula.artista setText:media.artista];
+            break;
+        }
+        case 2: {
+            Media *media = [arrayMovies objectAtIndex:indexPath.row];
+            
+            [celula.nome setText:media.nome];
+            [celula.tipo setText:media.midia];
+            [celula.genero setText:media.genero];
+            [celula.artista setText:media.artista];
+            break;
+        }
+        default:
+            break;
+    }
     
     return celula;
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    NSString *title;
+    switch (section) {
+        case 0: title = @"Podcasts";
+            break;
+        case 1: title = @"Musicas";
+            break;
+        case 2: title = @"Filmes";
+            break;
+        default:
+            break;
+    }
+    return title;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {

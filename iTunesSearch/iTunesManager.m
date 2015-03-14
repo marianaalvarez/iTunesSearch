@@ -7,7 +7,7 @@
 //
 
 #import "iTunesManager.h"
-#import "Entidades/Filme.h"
+#import "Entidades/Media.h"
 
 @implementation iTunesManager
 
@@ -29,10 +29,12 @@ static bool isFirstAccess = YES;
 }
 
 
-- (NSArray *)buscarMidias:(NSString *)termo {
+- (NSDictionary *)buscarMidias:(NSString *)termo {
     if (!termo) {
         termo = @"";
     }
+    
+    termo = [termo stringByReplacingOccurrencesOfString:@" " withString: @"%20"];
     
     NSString *url = [NSString stringWithFormat:@"https://itunes.apple.com/search?term=%@&media=all", termo];
     NSData *jsonData = [NSData dataWithContentsOfURL: [NSURL URLWithString:url]];
@@ -47,21 +49,55 @@ static bool isFirstAccess = YES;
     }
     
     NSArray *resultados = [resultado objectForKey:@"results"];
-    NSMutableArray *filmes = [[NSMutableArray alloc] init];
+    
+    NSMutableArray *medias = [[NSMutableArray alloc] init];
+    _arrayPodcasts = [[NSMutableArray alloc] init];
+    _arrayMovies = [[NSMutableArray alloc] init];
+    _arrayMusic = [[NSMutableArray alloc] init];
+    
     
     for (NSDictionary *item in resultados) {
-        Filme *filme = [[Filme alloc] init];
-        [filme setNome:[item objectForKey:@"trackName"]];
-        [filme setTrackId:[item objectForKey:@"trackId"]];
-        [filme setArtista:[item objectForKey:@"artistName"]];
-        [filme setDuracao:[item objectForKey:@"trackTimeMillis"]];
-        [filme setGenero:[item objectForKey:@"primaryGenreName"]];
-        [filme setPais:[item objectForKey:@"country"]];
-        [filme setTipo:[item objectForKey:@"kind"]];
-        [filmes addObject:filme];
+        if ([[item objectForKey:@"kind"] isEqualToString: @"podcast"]) {
+            Media *media = [[Media alloc] init];
+            [media setNome:[item objectForKey:@"trackName"]];
+            [media setArtista:[item objectForKey:@"artistName"]];
+            [media setGenero:[item objectForKey:@"primaryGenreName"]];
+            [media setMidia:[item objectForKey:@"kind"]];
+            [medias addObject:media];
+            [_arrayPodcasts addObject:media];
+            
+        }
+        if ([[item objectForKey:@"kind"] isEqualToString: @"song"]) {
+            Media *media = [[Media alloc] init];
+            [media setNome:[item objectForKey:@"trackName"]];
+            [media setArtista:[item objectForKey:@"artistName"]];
+            [media setGenero:[item objectForKey:@"primaryGenreName"]];
+            [media setMidia:[item objectForKey:@"kind"]];
+            [medias addObject:media];
+            [_arrayMusic addObject:media];
+            
+        }
+        if ([[item objectForKey:@"kind"] isEqualToString: @"featured-movie"]) {
+            Media *media = [[Media alloc] init];
+            [media setNome:[item objectForKey:@"trackName"]];
+            [media setArtista:[item objectForKey:@"artistName"]];
+            [media setGenero:[item objectForKey:@"primaryGenreName"]];
+            [media setMidia:[item objectForKey:@"kind"]];
+            [medias addObject:media];
+            [_arrayMovies addObject:media];
+            
+        }
+        
     }
     
-    return filmes;
+    _categorias = [NSMutableDictionary dictionaryWithDictionary:@{@"podcast": _arrayPodcasts,
+                                                                  @"movie": _arrayMovies,
+                                                                  @"music": _arrayMusic,
+                                                                  }];
+    
+    NSLog(@"Passando Aqui");
+    
+    return _categorias;
 }
 
 

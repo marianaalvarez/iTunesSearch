@@ -14,6 +14,8 @@
 
 @property (strong, nonatomic) IBOutlet UITableView *tableview;
 @property UITextField *texto;
+@property NSMutableArray *array;
+@property iTunesManager *itunes;
 
 @end
 

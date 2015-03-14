@@ -6,8 +6,8 @@
 //  Copyright (c) 2015 joaquim. All rights reserved.
 //
 
-#import "Filme.h"
+#import "Media.h"
 
-@implementation Filme
+@implementation Media
 
 @end
