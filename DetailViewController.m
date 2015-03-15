@@ -25,6 +25,10 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    UINavigationItem *navIten = self.navigationController.navigationBar.topItem;
+    navIten.title = @"Back";
+   /* UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStyleDone target:nil action:nil];*/
+    //self.navigationItem.backBarButtonItem = backButton;
     NSData * imageData = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString: _media.imagem]];
     _nome.text = _media.nome;
     _tipo.text = _media.midia;

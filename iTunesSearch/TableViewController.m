@@ -28,8 +28,7 @@
     if (!detailVC) {
         detailVC = [[DetailViewController alloc]initWithNibName:nil bundle:nil];
         detailVC.title = @"Description";
-        UINavigationItem *navIten = self.navigationController.navigationBar.topItem;
-        navIten.title = @"Back";
+
     }
     return detailVC;
 }
@@ -45,12 +44,12 @@
     midias = [itunes buscarMidias:@"Apple"];
     
 #warning Necessario para que a table view tenha um espaco em relacao ao topo, pois caso contrario o texto ficara atras da barra superior
-    self.tableview.tableHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, self.tableview.bounds.size.width, 80.f)];
+    self.tableview.tableHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, self.tableview.bounds.size.width, 60.f)];
     
-    _texto = [[UITextField alloc]initWithFrame:CGRectMake(1.0f, 40.0f, 220.f, 30.f)];
+    _texto = [[UITextField alloc]initWithFrame:CGRectMake(5.0f, 15.0f, 220.f, 30.f)];
     [_texto setBorderStyle:UITextBorderStyleRoundedRect];
-    
-    UIButton *botao = [[UIButton alloc]initWithFrame:CGRectMake(220.f, 40.0f, 100.f, 30.f)];
+
+    UIButton *botao = [[UIButton alloc]initWithFrame:CGRectMake(220.f, 15.0f, 100.f, 30.f)];
     [botao setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
     [botao setTitle:NSLocalizedString(@"botao", @"") forState:UIControlStateNormal];
     [botao addTarget:self action:@selector(pesquisa) forControlEvents:UIControlEventTouchUpInside];
@@ -61,7 +60,6 @@
 }
      
 -(void)pesquisa{
-    //iTunesManager *itunes = [iTunesManager sharedInstance];
     midias = [itunes buscarMidias:_texto.text];
     [_tableview reloadData];
 }
@@ -181,6 +179,14 @@
         detailVC.media = [arrayMovies objectAtIndex:indexPath.row];
     }
 }
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    UINavigationItem *navIten = self.navigationController.navigationBar.topItem;
+    navIten.title = @"iTunesSearch";
+    
+}
+
 
 
 //-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {

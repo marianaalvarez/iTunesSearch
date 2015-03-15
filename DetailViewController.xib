@@ -20,32 +20,32 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="VjZ-y2-V9r">
-                    <rect key="frame" x="200" y="49" width="200" height="200"/>
+                    <rect key="frame" x="240" y="122" width="120" height="120"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="200" id="RIR-JE-ZU6"/>
-                        <constraint firstAttribute="width" constant="200" id="a3c-td-GhL"/>
+                        <constraint firstAttribute="height" constant="120" id="AHc-4q-4uK"/>
+                        <constraint firstAttribute="width" constant="120" id="e6A-uv-a27"/>
                     </constraints>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tipo" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zdh-ok-KhT">
-                    <rect key="frame" x="279" y="438.5" width="34" height="20.5"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Genero" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KOH-uN-ITr">
-                    <rect key="frame" x="279" y="378" width="57" height="21"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Genero" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KOH-uN-ITr">
+                    <rect key="frame" x="272" y="329" width="56.5" height="20.5"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nome" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XT9-5k-BnY">
-                    <rect key="frame" x="279" y="281" width="46" height="20.5"/>
+                    <rect key="frame" x="276" y="262" width="48.5" height="21.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Artista" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fVD-Kj-wDc">
+                    <rect key="frame" x="276" y="296" width="49.5" height="20.5"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Artista" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fVD-Kj-wDc">
-                    <rect key="frame" x="279" y="330" width="57" height="21"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tipo" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zdh-ok-KhT">
+                    <rect key="frame" x="283" y="363" width="34" height="20.5"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
@@ -53,16 +53,16 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="fVD-Kj-wDc" firstAttribute="centerX" secondItem="XT9-5k-BnY" secondAttribute="centerX" constant="5.5" id="0VT-G0-156"/>
-                <constraint firstItem="KOH-uN-ITr" firstAttribute="centerX" secondItem="zdh-ok-KhT" secondAttribute="centerX" constant="11.5" id="3vz-Tn-MD7"/>
-                <constraint firstAttribute="centerX" secondItem="VjZ-y2-V9r" secondAttribute="centerX" id="6bQ-wM-aJy"/>
-                <constraint firstItem="XT9-5k-BnY" firstAttribute="top" secondItem="VjZ-y2-V9r" secondAttribute="bottom" constant="32" id="FFL-fw-bYj"/>
-                <constraint firstItem="KOH-uN-ITr" firstAttribute="top" secondItem="fVD-Kj-wDc" secondAttribute="bottom" constant="32" id="Igx-6V-gWG"/>
-                <constraint firstItem="VjZ-y2-V9r" firstAttribute="centerX" secondItem="XT9-5k-BnY" secondAttribute="centerX" constant="-2" id="eyj-E2-Oic"/>
-                <constraint firstItem="zdh-ok-KhT" firstAttribute="top" secondItem="KOH-uN-ITr" secondAttribute="bottom" constant="32" id="nBi-mF-d3y"/>
-                <constraint firstItem="VjZ-y2-V9r" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="49" id="nNG-qf-NYg"/>
-                <constraint firstItem="fVD-Kj-wDc" firstAttribute="centerX" secondItem="KOH-uN-ITr" secondAttribute="centerX" id="t7v-l9-Mnu"/>
-                <constraint firstItem="fVD-Kj-wDc" firstAttribute="top" secondItem="XT9-5k-BnY" secondAttribute="bottom" constant="32" id="z7K-c9-a4A"/>
+                <constraint firstItem="KOH-uN-ITr" firstAttribute="centerX" secondItem="zdh-ok-KhT" secondAttribute="centerX" constant="0.5" id="9Sh-v9-Ade"/>
+                <constraint firstItem="KOH-uN-ITr" firstAttribute="centerX" secondItem="fVD-Kj-wDc" secondAttribute="centerX" id="LbL-VN-HbZ"/>
+                <constraint firstItem="XT9-5k-BnY" firstAttribute="top" secondItem="VjZ-y2-V9r" secondAttribute="bottom" constant="20" id="MO0-x5-vvj"/>
+                <constraint firstItem="KOH-uN-ITr" firstAttribute="top" secondItem="fVD-Kj-wDc" secondAttribute="bottom" constant="13" id="Mml-u3-b2I"/>
+                <constraint firstItem="XT9-5k-BnY" firstAttribute="centerX" secondItem="fVD-Kj-wDc" secondAttribute="centerX" id="TPO-RX-RaZ"/>
+                <constraint firstItem="VjZ-y2-V9r" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="122" id="UEQ-Jq-xRW"/>
+                <constraint firstAttribute="centerX" secondItem="VjZ-y2-V9r" secondAttribute="centerX" id="XcN-Vc-bOr"/>
+                <constraint firstItem="zdh-ok-KhT" firstAttribute="top" secondItem="KOH-uN-ITr" secondAttribute="bottom" constant="13" id="cVO-st-Xds"/>
+                <constraint firstItem="fVD-Kj-wDc" firstAttribute="top" secondItem="XT9-5k-BnY" secondAttribute="bottom" constant="12.5" id="tP3-iB-qap"/>
+                <constraint firstItem="VjZ-y2-V9r" firstAttribute="centerX" secondItem="XT9-5k-BnY" secondAttribute="centerX" constant="-0.5" id="vH3-w4-kRY"/>
             </constraints>
         </view>
         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="2If-L1-VcN">

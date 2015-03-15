@@ -15,6 +15,7 @@
 
 @property (strong, nonatomic) IBOutlet UITableView *tableview;
 @property (nonatomic, strong) DetailViewController *detailVC;
+@property (nonatomic, strong) TableViewController *tableVC;
 @property UITextField *texto;
 @property NSMutableArray *array;
 @property iTunesManager *itunes;

@@ -26,8 +26,6 @@
     self.window.backgroundColor = [UIColor whiteColor];
 
 #warning Adicionado codigo para iniciar com a interface do TableView
-//    TableViewController *tvc = [[TableViewController alloc] initWithNibName:@"TableView" bundle:nil];
-    //TableViewController *tvc = [[TableViewController alloc] init];
     self.tableVC = [[TableViewController alloc]initWithNibName:nil bundle:nil];
     self.tableVC.title = @"iTunes Search";
     self.navC = [[UINavigationController alloc]initWithRootViewController:self.tableVC];
