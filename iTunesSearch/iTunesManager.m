@@ -68,14 +68,16 @@ static bool isFirstAccess = YES;
     }
     
     NSArray *resultados = [resultado objectForKey:@"results"];
-    
     for (NSDictionary *item in resultados) {
-        Media *podcast = [[Media alloc] init];
-        [podcast setNome:[item objectForKey:@"trackName"]];
-        [podcast setArtista:[item objectForKey:@"artistName"]];
-        [podcast setGenero:[item objectForKey:@"primaryGenreName"]];
-        [podcast setMidia:[item objectForKey:@"kind"]];
-        [_arrayPodcasts addObject:podcast];
+        NSString *pattern = [NSString stringWithFormat:@"\\b%@\\b", termo];
+        if ([self validateString:[item objectForKey:@"trackName"] withPattern:pattern]) {
+            Media *podcast = [[Media alloc] init];
+            [podcast setNome:[item objectForKey:@"trackName"]];
+            [podcast setArtista:[item objectForKey:@"artistName"]];
+            [podcast setGenero:[item objectForKey:@"primaryGenreName"]];
+            [podcast setMidia:[item objectForKey:@"kind"]];
+            [_arrayPodcasts addObject:podcast];
+        }
         
     }
 }
@@ -95,12 +97,15 @@ static bool isFirstAccess = YES;
     NSArray *resultados = [resultado objectForKey:@"results"];
     
     for (NSDictionary *item in resultados) {
-        Media *music = [[Media alloc] init];
-        [music setNome:[item objectForKey:@"trackName"]];
-        [music setArtista:[item objectForKey:@"artistName"]];
-        [music setGenero:[item objectForKey:@"primaryGenreName"]];
-        [music setMidia:[item objectForKey:@"kind"]];
-        [_arrayMusic addObject:music];
+        NSString *pattern = [NSString stringWithFormat:@"\\b%@\\b", termo];
+        if ([self validateString:[item objectForKey:@"trackName"] withPattern:pattern]) {
+            Media *music = [[Media alloc] init];
+            [music setNome:[item objectForKey:@"trackName"]];
+            [music setArtista:[item objectForKey:@"artistName"]];
+            [music setGenero:[item objectForKey:@"primaryGenreName"]];
+            [music setMidia:[item objectForKey:@"kind"]];
+            [_arrayMusic addObject:music];
+        }
     }
 
 }
@@ -120,17 +125,37 @@ static bool isFirstAccess = YES;
     NSArray *resultados = [resultado objectForKey:@"results"];
     
     for (NSDictionary *item in resultados) {
-        Media *movie = [[Media alloc] init];
-        [movie setNome:[item objectForKey:@"trackName"]];
-        [movie setArtista:[item objectForKey:@"artistName"]];
-        [movie setGenero:[item objectForKey:@"primaryGenreName"]];
-        [movie setMidia:[item objectForKey:@"kind"]];
-        [_arrayMovies addObject:movie];
+        NSString *pattern = [NSString stringWithFormat:@"\\b%@\\b", termo];
+        if ([self validateString:[item objectForKey:@"trackName"] withPattern:pattern]) {
+            Media *movie = [[Media alloc] init];
+            [movie setNome:[item objectForKey:@"trackName"]];
+            [movie setArtista:[item objectForKey:@"artistName"]];
+            [movie setGenero:[item objectForKey:@"primaryGenreName"]];
+            [movie setMidia:[item objectForKey:@"kind"]];
+            [_arrayMovies addObject:movie];
+        }
 
     }
 }
 
-
+- (BOOL)validateString:(NSString *)string withPattern:(NSString *)pattern
+{
+    NSError *error = nil;
+    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:pattern options:NSRegularExpressionCaseInsensitive error:&error];
+    
+    NSAssert(regex, @"Unable to create regular expression");
+    
+    NSRange textRange = NSMakeRange(0, string.length);
+    NSRange matchRange = [regex rangeOfFirstMatchInString:string options:NSMatchingReportProgress range:textRange];
+    
+    BOOL didValidate = NO;
+    
+    // Did we find a matching range
+    if (matchRange.location != NSNotFound)
+        didValidate = YES;
+    
+    return didValidate;
+}
 
 #pragma mark - Life Cycle
 
