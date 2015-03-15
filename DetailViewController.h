@@ -13,4 +13,10 @@
 
 @property Media *media;
 
+@property (weak, nonatomic) IBOutlet UIImageView *imagem;
+@property (weak, nonatomic) IBOutlet UILabel *nome;
+@property (weak, nonatomic) IBOutlet UILabel *artista;
+@property (weak, nonatomic) IBOutlet UILabel *genero;
+@property (weak, nonatomic) IBOutlet UILabel *tipo;
+
 @end

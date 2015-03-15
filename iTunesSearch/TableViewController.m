@@ -167,17 +167,18 @@
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    /*NSIndexPath *ip = [self.tableview indexPathForSelectedRow];
+    
+    [self.navigationController pushViewController:self.detailVC animated:YES];
+    
     if (indexPath.section==0) {
-        detailVC.media = [arrayPodcasts[ip.section] objectAtIndex:ip.row];
+        detailVC.media = [arrayPodcasts objectAtIndex:indexPath.row];
     }
     if (indexPath.section==1) {
-        detailVC.media = [arrayMusic[ip.section] objectAtIndex:ip.row];
+        detailVC.media = [arrayMusic objectAtIndex:indexPath.row];
     }
     if (indexPath.section==2) {
-        detailVC.media = [arrayMovies[ip.section] objectAtIndex:ip.row];
-    }*/
-    [self.navigationController pushViewController:self.detailVC animated:YES];
+        detailVC.media = [arrayMovies objectAtIndex:indexPath.row];
+    }
 }
 
 
