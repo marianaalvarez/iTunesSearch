@@ -11,6 +11,8 @@
 		05714E001AB4B7C600C0112C /* Music.m in Sources */ = {isa = PBXBuildFile; fileRef = 05714DFF1AB4B7C600C0112C /* Music.m */; };
 		05714E031AB4B7D400C0112C /* Movie.m in Sources */ = {isa = PBXBuildFile; fileRef = 05714E021AB4B7D400C0112C /* Movie.m */; };
 		05D3C9F21AAF71920022A3E6 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 05D3C9F41AAF71920022A3E6 /* Localizable.strings */; };
+		05F10D671AB4E860003BDA9E /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05F10D651AB4E860003BDA9E /* DetailViewController.m */; };
+		05F10D681AB4E860003BDA9E /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05F10D661AB4E860003BDA9E /* DetailViewController.xib */; };
 		92C21CB61AAE757A0052ABE6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 92C21CB51AAE757A0052ABE6 /* main.m */; };
 		92C21CB91AAE757A0052ABE6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 92C21CB81AAE757A0052ABE6 /* AppDelegate.m */; };
 		92C21CBC1AAE757A0052ABE6 /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92C21CBB1AAE757A0052ABE6 /* TableViewController.m */; };
@@ -43,6 +45,9 @@
 		05D3C9F31AAF71920022A3E6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		05D3C9F51AAF71950022A3E6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		05D3C9F61AAF74260022A3E6 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		05F10D641AB4E860003BDA9E /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DetailViewController.h; path = ../DetailViewController.h; sourceTree = "<group>"; };
+		05F10D651AB4E860003BDA9E /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DetailViewController.m; path = ../DetailViewController.m; sourceTree = "<group>"; };
+		05F10D661AB4E860003BDA9E /* DetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DetailViewController.xib; path = ../DetailViewController.xib; sourceTree = "<group>"; };
 		92C21CB01AAE757A0052ABE6 /* iTunesSearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iTunesSearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		92C21CB41AAE757A0052ABE6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		92C21CB51AAE757A0052ABE6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -113,6 +118,9 @@
 				92C21CDC1AAE75DC0052ABE6 /* TableView.xib */,
 				92C21CD91AAE75B30052ABE6 /* iTunesManager.h */,
 				92C21CDA1AAE75B30052ABE6 /* iTunesManager.m */,
+				05F10D641AB4E860003BDA9E /* DetailViewController.h */,
+				05F10D651AB4E860003BDA9E /* DetailViewController.m */,
+				05F10D661AB4E860003BDA9E /* DetailViewController.xib */,
 				92C21CC01AAE757A0052ABE6 /* Images.xcassets */,
 				92C21CB31AAE757A0052ABE6 /* Supporting Files */,
 			);
@@ -253,6 +261,7 @@
 			files = (
 				05D3C9F21AAF71920022A3E6 /* Localizable.strings in Resources */,
 				92C21CC11AAE757A0052ABE6 /* Images.xcassets in Resources */,
+				05F10D681AB4E860003BDA9E /* DetailViewController.xib in Resources */,
 				92C21CE21AAE76930052ABE6 /* TableViewCell.xib in Resources */,
 				92C21CDD1AAE75DC0052ABE6 /* TableView.xib in Resources */,
 			);
@@ -277,6 +286,7 @@
 				05714DFD1AB4B7B600C0112C /* Podcast.m in Sources */,
 				05714E001AB4B7C600C0112C /* Music.m in Sources */,
 				92C21CB91AAE757A0052ABE6 /* AppDelegate.m in Sources */,
+				05F10D671AB4E860003BDA9E /* DetailViewController.m in Sources */,
 				92C21CE81AAE858E0052ABE6 /* Media.m in Sources */,
 				05714E031AB4B7D400C0112C /* Movie.m in Sources */,
 				92C21CE11AAE76930052ABE6 /* TableViewCell.m in Sources */,

@@ -22,6 +22,15 @@
 
 @implementation TableViewController
 @synthesize itunes;
+@synthesize detailVC;
+
+-(DetailViewController*)detailVC {
+    if (!detailVC) {
+        detailVC = [[DetailViewController alloc]initWithNibName:nil bundle:nil];
+        detailVC.title = @"Description";
+    }
+    return detailVC;
+}
 
 
 - (void)viewDidLoad {
@@ -154,6 +163,21 @@
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 70;
 }
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    /*NSIndexPath *ip = [self.tableview indexPathForSelectedRow];
+    if (indexPath.section==0) {
+        detailVC.media = [arrayPodcasts[ip.section] objectAtIndex:ip.row];
+    }
+    if (indexPath.section==1) {
+        detailVC.media = [arrayMusic[ip.section] objectAtIndex:ip.row];
+    }
+    if (indexPath.section==2) {
+        detailVC.media = [arrayMovies[ip.section] objectAtIndex:ip.row];
+    }*/
+    [self.navigationController pushViewController:self.detailVC animated:YES];
+}
+
 
 //-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
 //    static NSString *CellIdentifier = @"SectionHeader";

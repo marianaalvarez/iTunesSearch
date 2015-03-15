@@ -7,11 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TableViewController.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
-
+@property (strong, nonatomic) TableViewController *tableVC;
+@property (strong, nonatomic) UINavigationController *navC;
 
 @end
 

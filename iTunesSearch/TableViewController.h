@@ -8,11 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "iTunesManager.h"
+#import "DetailViewController.h"
 
 @interface TableViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
 
 @property (strong, nonatomic) IBOutlet UITableView *tableview;
+@property (nonatomic, strong) DetailViewController *detailVC;
 @property UITextField *texto;
 @property NSMutableArray *array;
 @property iTunesManager *itunes;
