@@ -28,6 +28,8 @@
     if (!detailVC) {
         detailVC = [[DetailViewController alloc]initWithNibName:nil bundle:nil];
         detailVC.title = @"Description";
+        UINavigationItem *navIten = self.navigationController.navigationBar.topItem;
+        navIten.title = @"Back";
     }
     return detailVC;
 }
