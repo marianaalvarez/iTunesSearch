@@ -25,10 +25,13 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    NSData * imageData = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString: _media.imagem]];
     _nome.text = _media.nome;
     _tipo.text = _media.midia;
     _artista.text = _media.artista;
     _genero.text = _media.genero;
+    _imagem.image = [UIImage imageWithData:imageData];
+    
 }
 
 /*

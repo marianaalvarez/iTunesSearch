@@ -76,6 +76,7 @@ static bool isFirstAccess = YES;
             [podcast setArtista:[item objectForKey:@"artistName"]];
             [podcast setGenero:[item objectForKey:@"primaryGenreName"]];
             [podcast setMidia:[item objectForKey:@"kind"]];
+            [podcast setImagem:[item objectForKey:@"artworkUrl100"]];
             [_arrayPodcasts addObject:podcast];
         }
         
@@ -104,6 +105,7 @@ static bool isFirstAccess = YES;
             [music setArtista:[item objectForKey:@"artistName"]];
             [music setGenero:[item objectForKey:@"primaryGenreName"]];
             [music setMidia:[item objectForKey:@"kind"]];
+            [music setImagem:[item objectForKey:@"artworkUrl100"]];
             [_arrayMusic addObject:music];
         }
     }
@@ -132,6 +134,7 @@ static bool isFirstAccess = YES;
             [movie setArtista:[item objectForKey:@"artistName"]];
             [movie setGenero:[item objectForKey:@"primaryGenreName"]];
             [movie setMidia:[item objectForKey:@"kind"]];
+            [movie setImagem:[item objectForKey:@"artworkUrl100"]];
             [_arrayMovies addObject:movie];
         }
 

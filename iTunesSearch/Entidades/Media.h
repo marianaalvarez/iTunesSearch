@@ -14,5 +14,6 @@
 @property (nonatomic, strong) NSString *artista;
 @property (nonatomic, strong) NSString *genero;
 @property (nonatomic, strong) NSString *midia;
+@property (nonatomic, strong) NSString *imagem;
 
 @end

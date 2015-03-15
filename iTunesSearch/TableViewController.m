@@ -112,13 +112,14 @@
     switch (indexPath.section) {
             
         case 0: {
-            
             Media *media = [arrayPodcasts objectAtIndex:indexPath.row];
+            
+            NSData * imageData = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString: media.imagem]];
             
             [celula.nome setText:media.nome];
             [celula.tipo setText:media.midia];
             [celula.genero setText:media.genero];
-            [celula.artista setText:media.artista];
+            celula.imagem.image = [UIImage imageWithData: imageData];
             break;
         }
         case 1: {
