@@ -110,33 +110,39 @@
     switch (indexPath.section) {
             
         case 0: {
-            Media *media = [arrayPodcasts objectAtIndex:indexPath.row];
+            Podcast *podcast = [arrayPodcasts objectAtIndex:indexPath.row];
             
-            NSData * imageData = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString: media.imagem]];
+            NSData * imageData = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString: podcast.imagem]];
             
-            [celula.nome setText:media.nome];
-            [celula.tipo setText:media.midia];
-            [celula.genero setText:media.genero];
+            [celula.nome setText:podcast.nome];
+            [celula.tipo setText:podcast.midia];
+            [celula.genero setText:podcast.genero];
             celula.imagem.image = [UIImage imageWithData: imageData];
             break;
         }
         case 1: {
             
-            Media *media = [arrayMusic objectAtIndex:indexPath.row];
+            Musica *musica = [arrayMusic objectAtIndex:indexPath.row];
             
-            [celula.nome setText:media.nome];
-            [celula.tipo setText:media.midia];
-            [celula.genero setText:media.genero];
-            [celula.artista setText:media.artista];
+            NSData * imageData = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString: musica.imagem]];
+
+            [celula.nome setText:musica.nome];
+            [celula.tipo setText:musica.midia];
+            [celula.genero setText:musica.genero];
+            [celula.artista setText:musica.artista];
+            celula.imagem.image = [UIImage imageWithData: imageData];
             break;
         }
         case 2: {
-            Media *media = [arrayMovies objectAtIndex:indexPath.row];
+            Filme *filme = [arrayMovies objectAtIndex:indexPath.row];
             
-            [celula.nome setText:media.nome];
-            [celula.tipo setText:media.midia];
-            [celula.genero setText:media.genero];
-            [celula.artista setText:media.artista];
+            NSData * imageData = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString: filme.imagem]];
+            
+            [celula.nome setText:filme.nome];
+            [celula.tipo setText:filme.midia];
+            [celula.genero setText:filme.genero];
+            [celula.artista setText:filme.artista];
+            celula.imagem.image = [UIImage imageWithData: imageData];
             break;
         }
         default:
@@ -156,13 +162,19 @@
     [self.navigationController pushViewController:self.detailVC animated:YES];
     
     if (indexPath.section==0) {
-        detailVC.media = [arrayPodcasts objectAtIndex:indexPath.row];
+        detailVC.podcast = [arrayPodcasts objectAtIndex:indexPath.row];
+        detailVC.filme = nil;
+        detailVC.musica = nil;
     }
     if (indexPath.section==1) {
-        detailVC.media = [arrayMusic objectAtIndex:indexPath.row];
+        detailVC.musica = [arrayMusic objectAtIndex:indexPath.row];
+        detailVC.filme = nil;
+        detailVC.podcast = nil;
     }
     if (indexPath.section==2) {
-        detailVC.media = [arrayMovies objectAtIndex:indexPath.row];
+        detailVC.filme = [arrayMovies objectAtIndex:indexPath.row];
+        detailVC.podcast = nil;
+        detailVC.musica = nil;
     }
 }
 
@@ -172,20 +184,6 @@
     navIten.title = @"iTunesSearch";
     
 }
-
-
-
-//-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-//    static NSString *CellIdentifier = @"SectionHeader";
-//    UITableViewCell *headerView = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-//    if (headerView == nil){
-//        [NSException raise:@"headerView == nil.." format:@"No cells with matching CellIdentifier loaded from your storyboard"];
-//    }
-//    
-//    UITextField *texto = [[UITextField alloc]initWithFrame:CGRectMake(0.0f, 0.0f, 100.f, 30.f)];
-//    [headerView addSubview:texto];
-//    return headerView;
-//}
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     UIView *headerView = [[UIView alloc] init];

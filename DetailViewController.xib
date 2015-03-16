@@ -9,6 +9,7 @@
                 <outlet property="artista" destination="fVD-Kj-wDc" id="h6c-JZ-MZR"/>
                 <outlet property="genero" destination="KOH-uN-ITr" id="pgF-Nd-jxx"/>
                 <outlet property="imagem" destination="VjZ-y2-V9r" id="fVm-GI-OnB"/>
+                <outlet property="label" destination="d19-YH-rJg" id="2zs-qB-x11"/>
                 <outlet property="nome" destination="XT9-5k-BnY" id="c4l-is-zqn"/>
                 <outlet property="tipo" destination="zdh-ok-KhT" id="x7f-pp-4RV"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -50,10 +51,18 @@
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d19-YH-rJg">
+                    <rect key="frame" x="279" y="399" width="42" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstItem="d19-YH-rJg" firstAttribute="top" secondItem="zdh-ok-KhT" secondAttribute="bottom" constant="15.5" id="0tn-cK-ZdH"/>
                 <constraint firstItem="KOH-uN-ITr" firstAttribute="centerX" secondItem="zdh-ok-KhT" secondAttribute="centerX" constant="0.5" id="9Sh-v9-Ade"/>
+                <constraint firstItem="zdh-ok-KhT" firstAttribute="centerX" secondItem="d19-YH-rJg" secondAttribute="centerX" id="EBC-5P-d8u"/>
                 <constraint firstItem="KOH-uN-ITr" firstAttribute="centerX" secondItem="fVD-Kj-wDc" secondAttribute="centerX" id="LbL-VN-HbZ"/>
                 <constraint firstItem="XT9-5k-BnY" firstAttribute="top" secondItem="VjZ-y2-V9r" secondAttribute="bottom" constant="20" id="MO0-x5-vvj"/>
                 <constraint firstItem="KOH-uN-ITr" firstAttribute="top" secondItem="fVD-Kj-wDc" secondAttribute="bottom" constant="13" id="Mml-u3-b2I"/>

@@ -27,14 +27,39 @@
     [super viewWillAppear:animated];
     UINavigationItem *navIten = self.navigationController.navigationBar.topItem;
     navIten.title = @"Back";
-   /* UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStyleDone target:nil action:nil];*/
-    //self.navigationItem.backBarButtonItem = backButton;
-    NSData * imageData = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString: _media.imagem]];
-    _nome.text = _media.nome;
-    _tipo.text = _media.midia;
-    _artista.text = _media.artista;
-    _genero.text = _media.genero;
-    _imagem.image = [UIImage imageWithData:imageData];
+    
+    if (_filme != nil) {
+        
+        NSData * imageData = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString: _filme.imagem]];
+        _nome.text = _filme.nome;
+        _tipo.text = _filme.midia;
+        _artista.text = _filme.artista;
+        _genero.text = _filme.genero;
+        _imagem.image = [UIImage imageWithData:imageData];
+        _label.text = _filme.country;
+        
+        
+    } else if (_musica != nil) {
+        
+        NSData * imageData = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString: _musica.imagem]];
+        _nome.text = _musica.nome;
+        _tipo.text = _musica.midia;
+        _artista.text = _musica.artista;
+        _genero.text = _musica.genero;
+        _imagem.image = [UIImage imageWithData:imageData];
+        _label.text = _musica.collecao;
+        
+    } else if (_podcast != nil) {
+        
+        NSData * imageData = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString: _podcast.imagem]];
+        _nome.text = _podcast.nome;
+        _tipo.text = _podcast.midia;
+        _artista.text = _podcast.artista;
+        _genero.text = _podcast.genero;
+        _imagem.image = [UIImage imageWithData:imageData];
+        _label.text = _musica.collecao;
+        
+    }
     
 }
 

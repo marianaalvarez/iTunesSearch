@@ -8,6 +8,9 @@
 
 #import "iTunesManager.h"
 #import "Entidades/Media.h"
+#import "Filme.h"
+#import "Musica.h"
+#import "Podcast.h"
 
 @implementation iTunesManager
 
@@ -71,12 +74,14 @@ static bool isFirstAccess = YES;
     for (NSDictionary *item in resultados) {
         NSString *pattern = [NSString stringWithFormat:@"\\b%@\\b", termo];
         if ([self validateString:[item objectForKey:@"trackName"] withPattern:pattern]) {
-            Media *podcast = [[Media alloc] init];
+            Podcast *podcast = [[Podcast alloc] init];
             [podcast setNome:[item objectForKey:@"trackName"]];
             [podcast setArtista:[item objectForKey:@"artistName"]];
             [podcast setGenero:[item objectForKey:@"primaryGenreName"]];
             [podcast setMidia:[item objectForKey:@"kind"]];
             [podcast setImagem:[item objectForKey:@"artworkUrl100"]];
+            [podcast setCollecao:[item objectForKey:@"collectionName"]];
+            [podcast setImagemMidia:@"end-26"];
             [_arrayPodcasts addObject:podcast];
         }
         
@@ -100,12 +105,14 @@ static bool isFirstAccess = YES;
     for (NSDictionary *item in resultados) {
         NSString *pattern = [NSString stringWithFormat:@"\\b%@\\b", termo];
         if ([self validateString:[item objectForKey:@"trackName"] withPattern:pattern]) {
-            Media *music = [[Media alloc] init];
+            Musica *music = [[Musica alloc] init];
             [music setNome:[item objectForKey:@"trackName"]];
             [music setArtista:[item objectForKey:@"artistName"]];
             [music setGenero:[item objectForKey:@"primaryGenreName"]];
             [music setMidia:[item objectForKey:@"kind"]];
             [music setImagem:[item objectForKey:@"artworkUrl100"]];
+            [music setCollecao:[item objectForKey:@"collectionName"]];
+            [music setImagemMidia:@"music-26"];
             [_arrayMusic addObject:music];
         }
     }
@@ -129,12 +136,14 @@ static bool isFirstAccess = YES;
     for (NSDictionary *item in resultados) {
         NSString *pattern = [NSString stringWithFormat:@"\\b%@\\b", termo];
         if ([self validateString:[item objectForKey:@"trackName"] withPattern:pattern]) {
-            Media *movie = [[Media alloc] init];
+            Filme *movie = [[Filme alloc] init];
             [movie setNome:[item objectForKey:@"trackName"]];
             [movie setArtista:[item objectForKey:@"artistName"]];
             [movie setGenero:[item objectForKey:@"primaryGenreName"]];
             [movie setMidia:[item objectForKey:@"kind"]];
             [movie setImagem:[item objectForKey:@"artworkUrl100"]];
+            [movie setCountry:[item objectForKey:@"country"]];
+            [movie setImagemMidia:@"film-26"];
             [_arrayMovies addObject:movie];
         }
 
