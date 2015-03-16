@@ -10,7 +10,6 @@
 
 @interface Movie : NSObject
 
-@property (nonatomic, strong) NSString *longDescription;
-
+@property (nonatomic, strong) NSString *country;
 
 @end

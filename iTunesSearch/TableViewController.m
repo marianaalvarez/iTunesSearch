@@ -146,20 +146,6 @@
     return celula;
 }
 
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    NSString *title;
-    switch (section) {
-        case 0: title = @"Podcasts";
-            break;
-        case 1: title = @"Musicas";
-            break;
-        case 2: title = @"Filmes";
-            break;
-        default:
-            break;
-    }
-    return title;
-}
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 70;
@@ -201,5 +187,53 @@
 //    return headerView;
 //}
 
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    UIView *headerView = [[UIView alloc] init];
+    
+    UIImageView *imageViewForImage = [[UIImageView alloc]init];
+    imageViewForImage.frame = CGRectMake(0, 0, 20, 20);
+    
+    UILabel *texto = [[UILabel alloc]initWithFrame:CGRectMake(30.0f, 15.0f, 220.f, 20.f)];
+    
+    if (section==0) {
+        imageViewForImage.image = [UIImage imageNamed:@"end-26"];
+        texto.text = @"Podcast";
+    }
+    if (section==1) {
+        imageViewForImage.image = [UIImage imageNamed:@"music-26"];
+        texto.text = @"Musica";
+    }
+    if (section==2) {
+        imageViewForImage.image = [UIImage imageNamed:@"film-26"];
+        texto.text = @"Filme";
+    }
+    
+    imageViewForImage.autoresizingMask = UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleBottomMargin;
+    [headerView setBackgroundColor:[UIColor whiteColor]];
+    [headerView addSubview:imageViewForImage];
+    [headerView addSubview:texto];
+    return headerView;
+}
+
+/*- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    NSString *title;
+    switch (section) {
+        case 0: title = @"Podcasts";
+            break;
+        case 1: title = @"Musicas";
+            break;
+        case 2: title = @"Filmes";
+            break;
+        default:
+            break;
+    }
+    return title;
+}*/
+
+-(CGFloat)tableView:(UITableView*)tableView heightForHeaderInSection:(NSInteger)section {
+    
+    return 50;
+    
+}
 
 @end
